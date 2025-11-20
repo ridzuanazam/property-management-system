@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "rent_id": 1,
+    "transaction_id": "TXN202401150001",
+    "amount": 4200.0,
+    "method": "FPX",
+    "status": "success",
+    "paid_by_user_id": 4,
+    "response_data": {
+      "bank": "Maybank",
+      "reference": "MBBM20240120",
+      "authorization_code": "783456"
+    },
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 2,
+    "rent_id": 2,
+    "transaction_id": "TXN202402150002",
+    "amount": 4200.0,
+    "method": "Card",
+    "status": "success",
+    "paid_by_user_id": 4,
+    "response_data": {
+      "card_type": "Visa",
+      "last4": "4567",
+      "gateway": "Stripe",
+      "authorization_code": "987654"
+    },
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 3,
+    "rent_id": 4,
+    "transaction_id": "TXN202403010004",
+    "amount": 850.0,
+    "method": "FPX",
+    "status": "success",
+    "paid_by_user_id": 5,
+    "response_data": {
+      "bank": "CIMB",
+      "reference": "CIMB20240305",
+      "authorization_code": "234567"
+    },
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 4,
+    "rent_id": 5,
+    "transaction_id": "TXN202404010005",
+    "amount": 850.0,
+    "method": "FPX",
+    "status": "success",
+    "paid_by_user_id": 5,
+    "response_data": {
+      "bank": "Public Bank",
+      "reference": "PBB20240408",
+      "authorization_code": "345678"
+    },
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 5,
+    "rent_id": 6,
+    "transaction_id": "TXN202402200006",
+    "amount": 500.0,
+    "method": "Card",
+    "status": "success",
+    "paid_by_user_id": 6,
+    "response_data": {
+      "card_type": "Mastercard",
+      "last4": "8901",
+      "gateway": "iPay88",
+      "authorization_code": "456789"
+    },
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 6,
+    "rent_id": 8,
+    "transaction_id": "TXN202404250008",
+    "amount": 1200.0,
+    "method": "FPX",
+    "status": "success",
+    "paid_by_user_id": 9,
+    "response_data": {
+      "bank": "Hong Leong Bank",
+      "reference": "HLB20240428",
+      "authorization_code": "567890"
+    },
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  }
+]

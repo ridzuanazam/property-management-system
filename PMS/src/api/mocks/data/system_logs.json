@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "user_id": 1,
+    "module": "authentication",
+    "action": "login",
+    "description": "User logged in successfully",
+    "entity_type": "users",
+    "entity_id": 1,
+    "ip_address": "192.168.1.100",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+    "created_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 2,
+    "user_id": 5,
+    "module": "rent_payment",
+    "action": "create",
+    "description": "Rent invoice INV-2024-004 generated",
+    "entity_type": "rents",
+    "entity_id": 4,
+    "ip_address": "192.168.1.105",
+    "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X)",
+    "created_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 3,
+    "user_id": 1,
+    "module": "property_management",
+    "action": "update",
+    "description": "Updated property status to renovation",
+    "entity_type": "properties",
+    "entity_id": 2,
+    "ip_address": "192.168.1.100",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+    "created_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 4,
+    "user_id": null,
+    "module": "system",
+    "action": "error",
+    "description": "Failed payment webhook: Invalid signature",
+    "entity_type": "payments",
+    "entity_id": null,
+    "ip_address": "10.0.0.25",
+    "user_agent": "Stripe-Webhook/1.0",
+    "created_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 5,
+    "user_id": 9,
+    "module": "maintenance",
+    "action": "create",
+    "description": "Maintenance request #4 created for light issue",
+    "entity_type": "maintenance_requests",
+    "entity_id": 4,
+    "ip_address": "192.168.1.110",
+    "user_agent": "Mozilla/5.0 (Android 14; Mobile; rv:124.0)",
+    "created_at": "2024-05-23T08:00:00Z"
+  }
+]

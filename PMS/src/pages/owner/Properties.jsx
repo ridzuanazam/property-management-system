@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useProperties } from "../../context/PropertiesContext";
 import PropertyCard from "../../components/cards/PropertyCard";
 import PropertyInfoCard from "../../components/cards/PropertyInfoCard";
-import { useProperties } from "./PropertyContext";
 
 export default function Properties() {
-  const { properties } = useProperties();
+  const { properties, loading } = useProperties();
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleOpen = (propertyData) => {
@@ -26,7 +28,7 @@ export default function Properties() {
     const query = searchQuery.toLowerCase();
 
     return (
-      prop.unitName.toLowerCase().includes(query) ||
+      prop.unit_name.toLowerCase().includes(query) ||
       prop.city.toLowerCase().includes(query) ||
       prop.state.toLowerCase().includes(query) ||
       prop.status.toLowerCase().includes(query)
@@ -110,18 +112,18 @@ export default function Properties() {
           {filteredProperties.length === 0 ? (
             <p className="text-gray-500 ml-6 mt-6">No properties found.</p>
           ) : (
-            filteredProperties.map((prop, index) => (
+            filteredProperties.map((prop) => (
               <PropertyCard
-                key={index}
+                key={prop.id}
                 id={prop.id}
-                photo={prop.photo} // fixed
-                name={prop.unitName}
+                photo={prop.photo?.[0]} // fixed
+                name={prop.unit_name}
                 city={prop.city}
                 state={prop.state}
                 levels={prop.floorLevel}
                 status={prop.status}
                 sizeSqft={prop.sizeSqft}
-                rooms={prop.rooms.length}
+                rooms={prop.rooms ? prop.rooms.length : 0}
                 onClick={() => handleOpen(prop)}
               />
             ))

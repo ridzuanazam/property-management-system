@@ -1,0 +1,80 @@
+[
+  {
+    "id": 1,
+    "property_id": 1,
+    "tenancy_id": 2,
+    "reported_by": 5,
+    "assigned_to": 1,
+    "title": "Aircond Leaking",
+    "description": "Water dripping from bedroom aircond unit",
+    "images": [
+      "https://img.example.com/main1-1.jpg",
+      "https://img.example.com/main1-2.jpg"
+    ],
+    "priority": "urgent",
+    "status": "in_progress",
+    "scheduled_date": "2024-04-25T14:00:00+08:00",
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 2,
+    "property_id": 1,
+    "tenancy_id": 3,
+    "reported_by": 6,
+    "assigned_to": 1,
+    "title": "Clogged Kitchen Sink",
+    "description": "Drainage very slow, water backing up",
+    "images": ["https://img.example.com/main2-1.jpg"],
+    "priority": "medium",
+    "status": "pending",
+    "scheduled_date": "2024-05-05T10:00:00+08:00",
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 3,
+    "property_id": 3,
+    "tenancy_id": 1,
+    "reported_by": 4,
+    "assigned_to": 2,
+    "title": "Garden Fence Broken",
+    "description": "Side fence panel fallen after storm",
+    "images": ["https://img.example.com/main3-1.jpg"],
+    "priority": "low",
+    "status": "completed",
+    "scheduled_date": "2024-03-10T09:00:00+08:00",
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 4,
+    "property_id": 1,
+    "tenancy_id": 6,
+    "reported_by": 9,
+    "assigned_to": null,
+    "title": "Light Flickering",
+    "description": "Master bedroom ceiling light keeps flickering",
+    "images": ["https://img.example.com/main4-1.jpg"],
+    "priority": "medium",
+    "status": "pending",
+    "scheduled_date": null,
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  },
+  {
+    "id": 5,
+    "property_id": 5,
+    "tenancy_id": null,
+    "reported_by": 7,
+    "assigned_to": null,
+    "title": "Roof Tile Missing",
+    "description": "Noticed during inspection, need urgent repair",
+    "images": ["https://img.example.com/main5-1.jpg"],
+    "priority": "urgent",
+    "status": "in_progress",
+    "scheduled_date": "2024-05-01T08:00:00+08:00",
+    "created_at": "2024-05-23T08:00:00Z",
+    "updated_at": "2024-05-23T08:00:00Z"
+  }
+]

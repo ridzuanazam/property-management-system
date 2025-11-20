@@ -246,13 +246,22 @@ export default function PropertyDetails() {
                 boxShadow: 3,
                 padding: 0,
                 "&:hover": {
-                  backgroundColor: "#f5f5f5",
+                  backgroundColor: "white",
                   boxShadow: 6,
+                  "& .edit-icon": {
+                    color: "black",
+                  },
                 },
               }}
               onClick={() => setOpenEditDialog(true)}
             >
-              <EditOutlinedIcon sx={{ color: "white" }} />
+              <EditOutlinedIcon
+                className="edit-icon"
+                sx={{
+                  color: "white",
+                  transition: "color 0.2s ease",
+                }}
+              />
             </Button>
           </div>
         </div>
