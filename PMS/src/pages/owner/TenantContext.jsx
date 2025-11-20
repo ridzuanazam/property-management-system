@@ -1,4 +1,5 @@
 // /src/context/TenantContext.jsx
+
 import React, { createContext, useContext, useState } from "react";
 import { dummyTenants, dummyOccupancies } from "./dummyTenants";
 import { dummyProperties } from "./dummyProperties"; // adjust path if your properties file is elsewhere

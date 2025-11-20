@@ -21,7 +21,9 @@ export default function PropertyInfoCard({ isOpen, onClose, data }) {
   }
 
   const getStatusClasses = (status) => {
-    switch (status.toLowerCase()) {
+    switch (
+      status?.toLowerCase() // ✅ Add null safety
+    ) {
       case "available":
         return "bg-green-100 text-green-700";
       case "renovation":
@@ -51,69 +53,69 @@ export default function PropertyInfoCard({ isOpen, onClose, data }) {
           ✕
         </button>
       </div>
-
       {/* Property Name */}
-      <h2 className="text-2xl font-bold">{data.unitName}</h2>
-
+      <h2 className="text-2xl font-bold">{data.unit_name}</h2> // ✅ FIX 1:
+      unit_name
       {/* Location */}
       <div className="flex items-center gap-1.5 text-gray-600 text-sm my-2 pb-2">
         <LocationOnIcon fontSize="small" />
         <span>{`${data.city}, ${data.state}`}</span>
       </div>
-
       {/* Property Image */}
       <img
-        src={data.photo}
-        className="w-full h-60 rounded-2xl mb-6 object-cover "
+        src={data.photos?.[0]} // ✅ FIX 2: photos array
+        alt={data.unit_name}
+        className="w-full h-60 rounded-2xl mb-6 object-cover"
       />
-
       {/* Property Facts */}
       <div className="flex flex-wrap gap-6 text-gray-600 text-sm mb-7">
         <div className="flex items-center gap-1.5">
           <LayersOutlinedIcon fontSize="small" />
           <span>
-            {data.floorLevel || "N/A"}{" "}
-            {data.floorLevel > 1 ? "Levels" : "Level"}
+            {data.unit_floor || "N/A"} {/* ✅ FIX 3: unit_floor */}
+            {data.unit_floor > 1 ? "Levels" : "Level"}
           </span>
         </div>
 
         <div className="flex items-center gap-1.5">
           <MeetingRoomOutlinedIcon fontSize="small" />
           <span>
-            {data.rooms.length || "N/A"}{" "}
-            {data.rooms.length > 1 ? "Rooms" : "Room"}
+            {data.rooms?.length || "N/A"} {/* ✅ FIX 4: Optional chaining */}
+            {data.rooms?.length > 1 ? "Rooms" : "Room"}
           </span>
         </div>
 
         <div className="flex items-center gap-1.5">
           <ViewInArOutlinedIcon fontSize="small" />
-          <span>{data.sizeSqft || "N/A"} sqft </span>
+          <span>{data.size_sqft || "N/A"} sqft</span>{" "}
+          {/* ✅ FIX 5: size_sqft */}
         </div>
 
         <div className="flex items-center gap-1.5">
           <BathtubOutlinedIcon fontSize="small" />
           <span>
-            {data.totalBathroom || "N/A"}{" "}
-            {data.totalBathroom > 1 ? "Bathrooms" : "Bathroom"}
+            {data.bathrooms || "N/A"} {/* ✅ FIX 6: bathrooms */}
+            {data.bathrooms > 1 ? "Bathrooms" : "Bathroom"}
           </span>
         </div>
       </div>
-
       {/* Availability */}
       <div className="p-4 bg-gray-100 rounded-lg mb-6">
         <p className="text-gray-800 text-sm">
           Availability:{" "}
           <b>{`${
-            data.rooms.filter((r) => ["Available"].includes(r.status)).length
-          } / ${data.rooms.length}`}</b>{" "}
+            // ✅ FIX 7: Add rooms array null check
+            data.rooms?.filter((r) => r.status.toLowerCase() === "available")
+              .length || 0
+          } / ${data.rooms?.length || 0}`}</b>{" "}
           rooms
         </p>
       </div>
-
       {/* Extra Details */}
       <div className="grid grid-cols-2 gap-y-5 gap-x-5">
         <p className="text-gray-800 text-base">
-          <b>Unit Type:</b> {data.unitType || "N/A"}
+          <b>Unit Type:</b> {data.type || "N/A"}{" "}
+          {/* ✅ FIX 8: type not unitType */}
         </p>
 
         <p className="text-gray-800 text-base">
@@ -133,41 +135,48 @@ export default function PropertyInfoCard({ isOpen, onClose, data }) {
         </div>
 
         <p className="text-gray-800 text-base">
-          <b>Renting Type:</b> {data.rentingType || "N/A"}
+          <b>Renting Type:</b> {data.rent_type || "N/A"}{" "}
+          {/* ✅ FIX 9: rent_type not rentingType */}
         </p>
 
         {/* Facilities */}
         <div className="col-span-2 text-gray-800 text-base mb-8">
           <b>Facilities:</b>
           <div className="flex flex-wrap gap-2 mt-2 pl-6">
-            {(data.facilities || []).map((prop, idx) => (
-              <span
-                key={idx}
-                className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700"
-              >
-                {prop}
-              </span>
-            ))}
+            {(data.facilities || []).map(
+              (
+                facility // ✅ FIX 10: Use facility as key
+              ) => (
+                <span
+                  key={facility} // Better than idx
+                  className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700"
+                >
+                  {facility}
+                </span>
+              )
+            )}
           </div>
         </div>
       </div>
       {/* Rooms List */}
       <div className="col-span-2 flex items-center justify-between pb-3 mb-6">
         <p className="text-lg font-bold text-gray-800">List of Rooms</p>
-        <Link to={`property-details/${data.id}`}>
-          <span className="flex items-center text-sm text-gray-600 hover:text-teal-600 ">
+        <Link to={`/property-details/${data.id}`}>
+          {" "}
+          // ✅ FIX 11: Add leading slash
+          <span className="flex items-center text-sm text-gray-600 hover:text-teal-600">
             <span>View Details</span>
-            <ChevronRightOutlinedIcon
-              fontSize="small"
-              className="-ml-0.5" // move icon slightly left
-            />
+            <ChevronRightOutlinedIcon fontSize="small" className="-ml-0.5" />
           </span>
         </Link>
       </div>
-
-      {(data.rooms || []).map((room) => (
-        <RoomListCard key={room.id} room={room} />
-      ))}
+      {(data.rooms || []).map(
+        (
+          room // ✅ FIX 12: Null safety for rooms
+        ) => (
+          <RoomListCard key={room.id} room={room} />
+        )
+      )}
     </aside>
   );
 }

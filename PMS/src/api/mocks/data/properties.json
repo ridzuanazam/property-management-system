@@ -17,8 +17,7 @@
     "rent_amount": 2800.0,
     "status": "available",
     "photos": [
-      "https://img.example.com/prop1-1.jpg",
-      "https://img.example.com/prop1-2.jpg"
+      "https://images.pexels.com/photos/1546168/pexels-photo-1546168.jpeg?cs=srgb&dl=pexels-david-mcbee-1546168.jpg&fm=jpg"
     ],
     "created_at": "2024-05-23T08:00:00Z",
     "updated_at": "2024-05-23T08:00:00Z"
@@ -46,7 +45,9 @@
     ],
     "rent_amount": 15000.0,
     "status": "renovation",
-    "photos": ["https://img.example.com/prop2-1.jpg"],
+    "photos": [
+      "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?cs=srgb&dl=pexels-pixabay-259588.jpg&fm=jpg"
+    ],
     "created_at": "2024-05-23T08:00:00Z",
     "updated_at": "2024-05-23T08:00:00Z"
   },
@@ -68,9 +69,7 @@
     "rent_amount": 4200.0,
     "status": "available",
     "photos": [
-      "https://img.example.com/prop3-1.jpg",
-      "https://img.example.com/prop3-2.jpg",
-      "https://img.example.com/prop3-3.jpg"
+      "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?cs=srgb&dl=pexels-pixabay-323780.jpg&fm=jpg"
     ],
     "created_at": "2024-05-23T08:00:00Z",
     "updated_at": "2024-05-23T08:00:00Z"
@@ -92,7 +91,9 @@
     "facilities": ["Pool", "Security", "Playground"],
     "rent_amount": 1500.0,
     "status": "inactive",
-    "photos": ["https://img.example.com/prop4-1.jpg"],
+    "photos": [
+      "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?cs=srgb&dl=pexels-pixabay-106399.jpg&fm=jpg"
+    ],
     "created_at": "2024-05-23T08:00:00Z",
     "updated_at": "2024-05-23T08:00:00Z"
   },
@@ -114,8 +115,7 @@
     "rent_amount": 8500.0,
     "status": "available",
     "photos": [
-      "https://img.example.com/prop5-1.jpg",
-      "https://img.example.com/prop5-2.jpg"
+      "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?cs=srgb&dl=pexels-vecislavas-popa-1571460.jpg&fm=jpg"
     ],
     "created_at": "2024-05-23T08:00:00Z",
     "updated_at": "2024-05-23T08:00:00Z"

@@ -1,18 +1,31 @@
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useProperties } from "../../context/PropertiesContext";
 import PropertyCard from "../../components/cards/PropertyCard";
 import PropertyInfoCard from "../../components/cards/PropertyInfoCard";
 
+const fetchProperties = async () => {
+  const res = await axios.get("/api/properties");
+  return res.data; // This is { data: [...], meta: {...} }
+};
+
 export default function Properties() {
-  const { properties, loading } = useProperties();
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  const { data, isLoading } = useQuery({
+    queryKey: ["properties"],
+    queryFn: fetchProperties,
+  });
 
   const [selectedProperty, setSelectedProperty] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  // ✅ FIX 1: Extract the array from the paginated response
+  const properties = data?.data || [];
 
   const handleOpen = (propertyData) => {
     setSelectedProperty(propertyData);
@@ -50,7 +63,7 @@ export default function Properties() {
           <div className="flex items-center gap-3 mr-10">
             <img
               src="https://picsum.photos/150"
-              className="w-10 h-10 rounded-full "
+              className="w-10 h-10 rounded-full"
             />
             <div className="flex flex-col">
               <span className="text-sm font-medium text-gray-900">
@@ -116,13 +129,13 @@ export default function Properties() {
               <PropertyCard
                 key={prop.id}
                 id={prop.id}
-                photo={prop.photo?.[0]} // fixed
+                photo={prop.photos?.[0]} // ✅ FIX 2: 'photos' not 'photo'
                 name={prop.unit_name}
                 city={prop.city}
                 state={prop.state}
-                levels={prop.floorLevel}
+                levels={prop.building_floors}
                 status={prop.status}
-                sizeSqft={prop.sizeSqft}
+                sizeSqft={prop.size_sqft}
                 rooms={prop.rooms ? prop.rooms.length : 0}
                 onClick={() => handleOpen(prop)}
               />
